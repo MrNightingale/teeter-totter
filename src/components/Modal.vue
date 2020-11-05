@@ -65,6 +65,7 @@ export default {
   transition: transform 0.5s ease, opacity 0.3s ease;
   transform: translateY(-50px);
   border-radius: 5px;
+  text-align: center;
 }
 
 button {

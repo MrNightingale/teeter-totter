@@ -32,6 +32,7 @@
     </div>
     <div class="teeter-totter__base"></div>
     <Modal v-if="isModalShow" @close="closeModal">
+      <h3>Game Over</h3>
       <button @click="triggerNewGame">Start New Game</button>
     </Modal>
   </main>
