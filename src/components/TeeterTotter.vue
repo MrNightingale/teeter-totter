@@ -12,8 +12,8 @@
       <div
         class="teeter-totter__floor"
         :style="{
-          transform: 'rotate(' + this.pain + 'deg)',
-          transition: 'transform ' + Math.abs(pain) * 0.1 + 's ease-in-out',
+          transform: 'rotate(' + this.force + 'deg)',
+          transition: 'transform ' + Math.abs(force) * 0.1 + 's ease-in-out',
         }"
       >
         <shape
@@ -57,7 +57,7 @@ export default {
       'rightShapes',
       'activeShapes',
       'isPaused',
-      'pain',
+      'force',
     ]),
     getId() {
       return new Date().getDate()

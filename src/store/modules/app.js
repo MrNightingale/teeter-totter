@@ -6,7 +6,7 @@ const state = {
   leftShapes: [],
   rightShapes: [],
   activeShapes: [],
-  pain: 0,
+  force: 0,
   maxWidth: 1000,
 }
 
@@ -17,7 +17,7 @@ const mutations = {
     state.leftShapes = []
     state.rightShapes = []
     state.activeShapes = []
-    state.pain = 0
+    state.force = 0
   },
   TOGGLE_PAUSE(state) {
     state.isPaused = !state.isPaused
@@ -67,17 +67,17 @@ const getters = {
   rightSum(state) {
     return calcUtils.getMomentum(state.rightShapes, state.maxWidth)
   },
-  pain(state, getters) {
+  force(state, getters) {
     const { leftSum, rightSum } = getters
-    state.pain = ((leftSum - rightSum) * -180) / 100
-    if (Math.abs(state.pain) > 30)
-      state.pain = 30 * (Math.abs(state.pain) / state.pain)
-    return state.pain
+    state.force = ((leftSum - rightSum) * -180) / 100
+    if (Math.abs(state.force) > 30)
+      state.force = 30 * (Math.abs(state.force) / state.force)
+    return state.force
   },
   gameOverStatus(state) {
     return (
       state.leftShapes.length == state.rightShapes.length &&
-      Math.abs(state.pain) == 30
+      Math.abs(state.force) == 30
     )
   }
 }

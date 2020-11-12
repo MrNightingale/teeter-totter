@@ -34,24 +34,21 @@ export default {
       'ADD_SHAPE_TO_RIGHT',
       'ADD_SHAPE_TO_ACTIVE',
     ]),
-    ...mapGetters('app', ['pain', 'gameOverStatus']),
+    ...mapGetters('app', ['force', 'gameOverStatus']),
     moveBottoms() {
       if (this.object.bottom > 0) {
         if (!this.isPaused) {
           this.object.bottom--
         }
         this.intervalid1 = setTimeout(
-          function() {
-            this.moveBottoms()
-          }.bind(this),
-          50
+          () => this.moveBottoms(), 50
         )
       } else {
         this.ACTIVE_SHAPE_MOVE_TO_LEFT()
-        this.pain()
+        this.force()
         if (!this.gameOverStatus()) {
           this.ADD_SHAPE_TO_RIGHT()
-          this.pain()
+          this.force()
           this.ADD_SHAPE_TO_ACTIVE()
         } else {
           this.$emit('gameFinished')
